@@ -3,10 +3,16 @@ import { View, Text } from 'react-native';
 import { initializeApp, getApps } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { getAnalytics } from 'firebase/analytics';
+import { TabBarIcon } from '@/components/navigation/TabBarIcon';
+import Footer from '@/components/Footer';
+import {StyleSheet} from 'react-native';
+require('dotenv').config();
+
+const apiKey = process.env.API_KEY;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDyokALQDyoQ1T1OYyIcvI6J3LN6GC0ztc",
+  apiKey: apiKey,
   authDomain: "reporte-ms.firebaseapp.com",
   projectId: "reporte-ms",
   storageBucket: "reporte-ms.appspot.com",
@@ -45,10 +51,20 @@ const App = () => {
   }, []);
 
   return (
-    <View>
-      <Text>Meu App Firebase</Text>
+    <View style={styles.container}>
+      <Text>Não há nada aqui...</Text>
+      <Footer/>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#E0F7FA',
+  },
+});
 
 export default App;
